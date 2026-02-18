@@ -40,7 +40,7 @@ export default class MainMenu extends BaseMenu {
   public async show(player: Player): Promise<ActionFormResponse> {
     const result = await super.show(player);
     if (result.canceled) {
-      player.dimension.runCommand(`title ${player.name} actionbar 你退出了菜单。`);
+      player.dimension.runCommand(`title "${player.name}" actionbar 你退出了菜单。`);
       return result;
     }
     switch (result.selection) {
@@ -85,12 +85,12 @@ class TPMenu extends BaseMenu {
   public async show(player: Player): Promise<ActionFormResponse> {
     const result = await super.show(player);
     if (result.canceled) {
-      player.dimension.runCommand(`title ${player.name} actionbar 你退出了菜单。`);
+      player.dimension.runCommand(`title "${player.name}" actionbar 你退出了菜单。`);
       return result;
     }
     const sel = result.selection;
     if (typeof sel !== "number" || sel >= this.points.length + 1) {
-      player.dimension.runCommand(`title ${player.name} actionbar 未选择有效的传送点。`);
+      player.dimension.runCommand(`title "${player.name}" actionbar 未选择有效的传送点。`);
       return result;
     }
     if (sel === 0) {
@@ -101,13 +101,13 @@ class TPMenu extends BaseMenu {
     if (point) {
       const dimension = world.getDimension(point.dimension);
       if (!dimension) {
-        player.dimension.runCommand(`title ${player.name} actionbar 无法找到维度 ${point.dimension}。`);
+        player.dimension.runCommand(`title "${player.name}" actionbar 无法找到维度 ${point.dimension}。`);
         return result;
       }
-      dimension.runCommand(`tp ${player.name} ${point.x} ${point.y} ${point.z}`);
-      player.dimension.runCommand(`title ${player.name} actionbar 已传送到 ${point.name}。`);
+      dimension.runCommand(`tp "${player.name}" ${point.x} ${point.y} ${point.z}`);
+      player.dimension.runCommand(`title "${player.name}" actionbar 已传送到 ${point.name}。`);
     } else {
-      player.dimension.runCommand(`title ${player.name} actionbar 无效的传送点。`);
+      player.dimension.runCommand(`title "${player.name}" actionbar 无效的传送点。`);
     }
     return result;
   }
@@ -128,7 +128,7 @@ class ChangeModeMenu extends BaseMenu {
   public async show(player: Player): Promise<ActionFormResponse> {
     const result = await super.show(player);
     if (result.canceled) {
-      player.dimension.runCommand(`title ${player.name} actionbar 你退出了菜单。`);
+      player.dimension.runCommand(`title "${player.name}" actionbar 你退出了菜单。`);
       return result;
     }
     switch (result.selection) {
@@ -137,19 +137,19 @@ class ChangeModeMenu extends BaseMenu {
         break;
       case 1:
         player.setGameMode(GameMode.Survival);
-        player.dimension.runCommand(`title ${player.name} actionbar 已切换到生存模式。`);
+        player.dimension.runCommand(`title "${player.name}" actionbar 已切换到生存模式。`);
         break;
       case 2:
         player.setGameMode(GameMode.Creative);
-        player.dimension.runCommand(`title ${player.name} actionbar 已切换到创造模式。`);
+        player.dimension.runCommand(`title "${player.name}" actionbar 已切换到创造模式。`);
         break;
       case 3:
         player.setGameMode(GameMode.Adventure);
-        player.dimension.runCommand(`title ${player.name} actionbar 已切换到冒险模式。`);
+        player.dimension.runCommand(`title "${player.name}" actionbar 已切换到冒险模式。`);
         break;
       case 4:
         player.setGameMode(GameMode.Spectator);
-        player.dimension.runCommand(`title ${player.name} actionbar 已切换到旁观者模式。`);
+        player.dimension.runCommand(`title "${player.name}" actionbar 已切换到旁观者模式。`);
         break;
     }
     return result;

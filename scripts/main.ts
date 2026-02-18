@@ -9,6 +9,7 @@ import {
   Entity,
   Player,
   Vector3,
+  Dimension,
 } from "@minecraft/server";
 import MainMenu from "./Menu";
 
@@ -82,7 +83,7 @@ system.beforeEvents.startup.subscribe((init: StartupEvent) => {
   });
 
   const tptargetCommand: CustomCommand = {
-    name: "shh:tptarget",
+    name: "shh:tpentity",
     description: "将你传送到指定实体的位置。",
     permissionLevel: CommandPermissionLevel.Any,
     mandatoryParameters: [{ type: CustomCommandParamType.EntitySelector, name: "targetEntity" }],
@@ -92,11 +93,19 @@ system.beforeEvents.startup.subscribe((init: StartupEvent) => {
     if (!player || !(player instanceof Player)) {
       return { status: CustomCommandStatus.Failure, message: "只有玩家可以执行此命令。" };
     }
+    if (!targetEntity || !Array.isArray(targetEntity) || targetEntity.length === 0) {
+      return { status: CustomCommandStatus.Failure, message: "没有指定有效的实体目标。" };
+    } else if (targetEntity.length > 1) {
+      return { status: CustomCommandStatus.Failure, message: "指定了多个实体目标，请只选择一个。" };
+    }
+    const target = targetEntity[0] as Entity;
     system.run(() => {
       try {
-        player.teleport(targetEntity.location);
+        target.dimension.runCommand(
+          `tp "${player.name}" ${target.location.x} ${target.location.y} ${target.location.z}`
+        );
         player.sendMessage(
-          `已传送到 ${targetEntity.location.x.toFixed(2)}, ${targetEntity.location.y.toFixed(2)}, ${targetEntity.location.z.toFixed(2)}`
+          `已传送到 ${target.location.x.toFixed(2)}, ${target.location.y.toFixed(2)}, ${target.location.z.toFixed(2)}`
         );
       } catch (e) {
         player.sendMessage(`传送失败: ${e}`);
