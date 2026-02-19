@@ -6,7 +6,7 @@
 
 This add-on is a test plugin for ShrHang.  
 It is developed using Microsoft's official developer pack, and the specific build method can be found in the  
-documentation linked below:
+documentation linked below:  
 [![REAMDE](https://img.shields.io/badge/Mojang-README--ORIGIN-green)](README_ORIGIN.md)
 [![DevDoc](https://img.shields.io/badge/Mojang-Developer%20Documentation-green)](https://learn.microsoft.com/zh-cn/minecraft/creator/documents/scripting/next-steps?view=minecraft-bedrock-stable)
 [![Repository](https://img.shields.io/badge/Mojang-Repository-green)](https://github.com/microsoft/minecraft-scripting-samples/)
@@ -16,7 +16,7 @@ documentation linked below:
 This add-on implements 4 custom commands:
 
 - `/shh:menu`：Open the menu
-- `/shh:openmenu [player]`：A command that requires admin privileges to open the menu for a specified player
+- `/shh:openmenu [player]`：Only operator, open the menu for a specified player
 - `/shh:tppos <location>`：Teleport to specified coordinates
 - `/shh:tpentity <entity>`：Teleport to a specified entity
 

@@ -5,7 +5,7 @@
 ## 概述
 
 本插件是ShrHang的测试插件。  
-它使用微软官方的开发者包进行开发，具体的构建方法请参考下方链接的文档说明：
+它使用微软官方的开发者包进行开发，具体的构建方法请参考下方链接的文档说明：  
 [![REAMDE](https://img.shields.io/badge/Mojang-README--原文件-green)](README_ORIGIN.md)
 [![开发者文档](https://img.shields.io/badge/Mojang-开发者文档-green)](https://learn.microsoft.com/zh-cn/minecraft/creator/documents/scripting/next-steps?view=minecraft-bedrock-stable)
 [![仓库](https://img.shields.io/badge/Mojang-开发者包仓库-green)](https://github.com/microsoft/minecraft-scripting-samples/)
@@ -15,7 +15,7 @@
 本插件实现了4个自定义命令：
 
 - `/shh:menu`：打开菜单
-- `/shh:openmenu [player]`：需要管理员权限的命令，打开菜单
+- `/shh:openmenu [player]`：仅op，为指定玩家打开菜单
 - `/shh:tppos <location>`：传送到指定坐标
 - `/shh:tpentity <entity>`：传送到指定实体
 
