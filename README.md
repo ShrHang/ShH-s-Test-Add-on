@@ -23,7 +23,7 @@ This add-on implements 4 custom commands:
 Except for special instructions, all of the above commands can be used directly by players in the game.
 
 The command to open the menu will display a simple UI interface on the player's screen, which can be used to teleport to waypoints and switch game modes.  
-The waypoint teleportation function will teleport the player to preset coordinate locations, which can be modified in the [`tpPoint.ts`](scripts/tpPoint.ts) file.  
+The waypoint teleportation function will teleport the player to preset coordinate locations, which can be modified in the [`tpPoints.ts`](scripts/tpPoints.ts) file.  
 
 ## Brief Explanation of the Build Method
 
