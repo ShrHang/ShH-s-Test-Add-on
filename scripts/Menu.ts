@@ -1,6 +1,6 @@
 import { world, Player, DimensionLocation, GameMode, system } from "@minecraft/server";
 import { ActionFormData, ActionFormResponse } from "@minecraft/server-ui";
-import { TeleportPoint, points } from "./tpPoint";
+import { TeleportPoint, points } from "./tpPoints";
 
 abstract class BaseMenu {
   protected form: ActionFormData;
