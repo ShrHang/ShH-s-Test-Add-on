@@ -1,8 +1,9 @@
 import { world, Player, DimensionLocation, GameMode, system } from "@minecraft/server";
 import { ActionFormData, ActionFormResponse } from "@minecraft/server-ui";
 import { TeleportPoint, points } from "./tpPoints";
+import { ClaimMainMenu } from "./claimMenu";
 
-abstract class BaseMenu {
+export abstract class BaseMenu {
   protected form: ActionFormData;
   protected location: DimensionLocation;
 
@@ -35,6 +36,7 @@ export default class MainMenu extends BaseMenu {
     this.setBody("欢迎使用ShH的菜单系统！");
     this.addButton("传送点");
     this.addButton("游戏模式");
+    this.addButton("领地管理"); // 领地操作按钮
   }
 
   public async show(player: Player): Promise<ActionFormResponse> {
@@ -49,6 +51,9 @@ export default class MainMenu extends BaseMenu {
         break;
       case 1:
         new ChangeModeMenu(this.location).show(player);
+        break;
+      case 2:
+        new ClaimMainMenu(this.location).show(player);
         break;
     }
     return result;
