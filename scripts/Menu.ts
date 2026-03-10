@@ -55,7 +55,7 @@ export default class MainMenu extends BaseMenu {
   }
 }
 
-class TPMenu extends BaseMenu {
+export class TPMenu extends BaseMenu {
   private points: TeleportPoint[] = [];
   constructor(location: DimensionLocation, points: TeleportPoint[]) {
     super(location);
@@ -113,7 +113,7 @@ class TPMenu extends BaseMenu {
   }
 }
 
-class ChangeModeMenu extends BaseMenu {
+export class ChangeModeMenu extends BaseMenu {
   constructor(location: DimensionLocation) {
     super(location);
     this.setTitle("游戏模式菜单");
@@ -156,7 +156,7 @@ class ChangeModeMenu extends BaseMenu {
   }
 }
 
-class FeatureMenu extends BaseMenu {
+export class FeatureMenu extends BaseMenu {
   constructor(location: DimensionLocation) {
     super(location);
     // TODO: 添加一些实用功能
