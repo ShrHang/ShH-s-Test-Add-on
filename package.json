@@ -26,6 +26,8 @@
     "@minecraft/math": "^2.2.11",
     "@minecraft/server": "^2.5.0",
     "@minecraft/server-ui": "^2.0.0",
-    "@minecraft/vanilla-data": "^1.21.90"
+    "@minecraft/vanilla-data": "^1.21.90",
+    "@types/uuid": "^10.0.0",
+    "uuid": "^13.0.0"
   }
 }
