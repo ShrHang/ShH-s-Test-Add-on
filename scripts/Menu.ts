@@ -13,14 +13,17 @@ abstract class BaseMenu {
 
   public setTitle(title: string) {
     this.form.title(title);
+    return this;
   }
 
   public setBody(body: string) {
     this.form.body(body);
+    return this;
   }
 
   public addButton(text: string) {
     this.form.button(text);
+    return this;
   }
 
   public show(player: Player) {
@@ -31,10 +34,14 @@ abstract class BaseMenu {
 export default class MainMenu extends BaseMenu {
   constructor(location: DimensionLocation) {
     super(location);
-    this.setTitle("主菜单");
-    this.setBody("欢迎使用ShH的菜单系统！");
-    this.addButton("传送点");
-    this.addButton("游戏模式");
+  }
+
+  public static async create(location: DimensionLocation): Promise<MainMenu> {
+    return new MainMenu(location)
+      .setTitle("主菜单")
+      .setBody("欢迎使用ShH的菜单系统！")
+      .addButton("传送点")
+      .addButton("游戏模式");
   }
 
   public async show(player: Player): Promise<ActionFormResponse> {
