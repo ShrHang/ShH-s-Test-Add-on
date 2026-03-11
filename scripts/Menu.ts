@@ -3,7 +3,7 @@ import { ActionFormData, ActionFormResponse } from "@minecraft/server-ui";
 import { TeleportPoint, points } from "./tpPoints";
 import { ClaimMainMenu } from "./claimMenu";
 
-export abstract class BaseMenu {
+export class BaseMenu {
   protected form: ActionFormData;
   protected location: DimensionLocation;
 
